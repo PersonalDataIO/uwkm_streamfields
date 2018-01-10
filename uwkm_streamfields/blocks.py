@@ -1,6 +1,6 @@
 from django.conf import settings
 
-from django import forms 
+from django import forms
 from django.db import models
 from django.utils.functional import cached_property
 from django.utils.translation import ugettext_lazy as _
@@ -126,7 +126,7 @@ class SliderBlock(blocks.StructBlock):
         ),
         required = False,
     )
-    
+
     cta_color_picker = ColorPickerBlock(
         label = 'CTA achtergrondkleur kiezer',
         required = False,
@@ -371,12 +371,12 @@ class DividerBlock(blocks.StructBlock):
         help_text = 'Lijn kleur.',
     )
     border_width = blocks.IntegerBlock(
-        default=2, 
-        min_value=1, 
-        max_value=50, 
-        help_text="De dikte van de horizontal lijn.", 
+        default=2,
+        min_value=1,
+        max_value=50,
+        help_text="De dikte van de horizontal lijn.",
         label="Dikte"
-    ) 
+    )
 
 
 class HTMLBlock(blocks.StructBlock):
@@ -572,7 +572,7 @@ class ProjectBlock(blocks.StructBlock):
     image = ImageChooserBlock()
     link = blocks.PageChooserBlock()
 
-    
+
 class GoogleMapsBlock(blocks.StructBlock):
     address = blocks.TextBlock(
         label = 'Adres',
@@ -621,7 +621,7 @@ grid_array = \
     ,('verticale_tabs', blocks.ListBlock(
         TabBlock(),
         template = 'streamfields/vertical_tab.html',
-        icon='list-ol',))    
+        icon='list-ol',))
     ,('afbeelding_met_tekst', blocks.ListBlock(
         BackgroundBlock(),
         template = 'streamfields/background_with_text.html',
@@ -644,7 +644,7 @@ grid_array = \
     ,('divider', blocks.ListBlock(
         DividerBlock(),
         template = 'streamfields/divider.html',
-        icon="horizontalrule",))   
+        icon="horizontalrule",))
     ,('html', blocks.ListBlock(
         HTMLBlock(),
         template = 'streamfields/raw_html.html',
@@ -674,16 +674,16 @@ grid_array = \
         template = 'streamfields/action.html',
         icon="fa-exclamation"))
     ,('logo_blokken', blocks.ListBlock(
-        LogoBlock(), 
-        template = 'streamfields/logo_block.html', 
+        LogoBlock(),
+        template = 'streamfields/logo_block.html',
         icon="image"))
     ,('download_link', blocks.ListBlock(
         DownloadLinkBlock(),
         template = 'streamfields/download_link.html',
         icon='fa-download'))
     ,('rev_slider', blocks.ListBlock(
-        RevSliderBlock(), 
-        template = 'streamfields/rev_slider.html', 
+        RevSliderBlock(),
+        template = 'streamfields/rev_slider.html',
         icon="image"))
     ,('medewerker', blocks.ListBlock(
         CoworkerBlock(),
@@ -721,7 +721,7 @@ if 'oscar_wagtail' in settings.INSTALLED_APPS:
 
     class ProductBlock(blocks.StructBlock):
         products = blocks.ListBlock(ProductChooserBlock)
-    
+
     grid_array.append(
         ('product', blocks.ListBlock(
             ProductBlock(),
