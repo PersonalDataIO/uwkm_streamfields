@@ -46,6 +46,7 @@ class AlignChoiceBlock(blocks.ChoiceBlock):
         ('right', 'Right'),
     ]
 
+
 class GridChoiceBlock(blocks.ChoiceBlock):
     BS_SIZE = settings.BS_SIZE
     choices = [
@@ -66,25 +67,25 @@ class GridChoiceBlock(blocks.ChoiceBlock):
 
 class MasonryGalleryBlock(blocks.StructBlock):
     columns = blocks.ChoiceBlock(
-        label = 'Kolommen',
+        label = _('Columns'),
         default = '4',
         choices = (
-            ('2', '2 kolommen'),
-            ('3', '3 kolommen'),
-            ('4', '4 kolommen'),
-            ('5', '5 kolommen'),
-            ('6', '6 kolommen'),
+            ('2', '2 column'),
+            ('3', '3 column'),
+            ('4', '4 column'),
+            ('5', '5 column'),
+            ('6', '6 column'),
         )
     )
     big_img = blocks.IntegerBlock(
-        label = 'Grote afbeelding',
+        label = _('Large image'),
         required = False,
-        help_text = 'Optioneel: hoeveelste plaatje (uit onderstaande afbeeldingen) wordt een "groot plaatje".'
+        help_text = 'Optional: how many pictures (from the pictures below) will be a "big picture".'
     )
     image = blocks.ListBlock(
         ImageChooserBlock(),
         icon='image',
-        label='Afbeelding',
+        label=_('Image'),
     )
 
 
@@ -92,51 +93,51 @@ class SliderBlock(blocks.StructBlock):
     image = ImageChooserBlock()
 
     name = blocks.CharBlock(
-        label='Naam',
+        label=_('Name'),
         max_length = 30,
-        help_text = 'Verschijnt onderaan als navigatieknop.',
+        help_text = _('Appears below as navigation button.'),
         required = True,
     )
 
     subtext = blocks.CharBlock(
-        label='Subtekst',
+        label=_('Subtext'),
         max_length = 35,
-        help_text = 'Verschijnt onder de navigatieknop.',
+        help_text = _('Appears under the navigation button.'),
         required = False,
     )
 
     button = blocks.BooleanBlock(
         label='Call to Action',
         default=False,
-        help_text = 'Heeft een call to action knop.',
+        help_text = _('Has a call to action button.'),
         required = False,
     )
 
     cta_text = blocks.CharBlock(
-        label='CTA tekst',
+        label=_('CTA text'),
         max_length = 20,
         required = False,
     )
 
     cta_pos  = blocks.ChoiceBlock(
-        label = 'CTA Positie',
+        label = _('CTA Position'),
         choices = (
-            ('left', _('Left')),
-            ('right', _('Right'))
+            ('left', 'Left'),
+            ('right', 'Right')
         ),
         required = False,
     )
 
     cta_color_picker = ColorPickerBlock(
-        label = 'CTA achtergrondkleur kiezer',
+        label = _('CTA background color selector'),
         required = False,
     )
 
     cta_link_type = blocks.ChoiceBlock(
         label = 'CTA link type',
         choices = (
-            ('wagtail', 'Wagtailpagina'),
-            ('url', 'Handmatige url')
+            ('wagtail', 'Wagtail page'),
+            ('url', 'Manual url')
         ),
         required = False,
     )
@@ -156,35 +157,37 @@ class SliderBlock(blocks.StructBlock):
     class Meta:
         icon = 'image'
 
+
 class SloganBlock(blocks.StructBlock):
     image = ImageChooserBlock()
 
     title = blocks.CharBlock(
-        label = 'Naam',
+        label = _('Name'),
         max_length = 30,
-        help_text = 'Verschijnt onderaan als navigatieknop.',
+        help_text = _('Appears below as navigation button.'),
         required = True,
     )
 
     text = blocks.TextBlock(
-        label = 'Tekst',
+        label = _('Text'),
         max_length = 120,
     )
 
+
 class QuoteBlock(blocks.StructBlock):
     quote = blocks.TextBlock(
-        label = 'Citaat',
+        label = _('Quote'),
         required = True,
         max_length = 150,
     )
 
     quote_pos = blocks.ChoiceBlock(
         choices = (
-            ('up', 'Boven'),
-            ('under', 'Onder'),
+            ('up', 'Above'),
+            ('under', 'Under'),
         ),
-        label = 'Positie quote',
-        help_text = 'De positie van de quote (boven of onder het plaatje).',
+        label = _('Position quote'),
+        help_text = _('The position of the quote (above or below the picture).',)
     )
 
     quote_size = blocks.ChoiceBlock(
@@ -192,47 +195,47 @@ class QuoteBlock(blocks.StructBlock):
             ('24px', '24px'),
             ('40px', '40px'),
         ),
-        label = 'Quote tekstgrootte',
-        help_text = 'De tekstgroote van de quote.',
+        label = _('Quote text size'),
+        help_text = _('The text size of the quote.'),
     )
 
     quote_background_color = ColorPickerBlock(
-        label = 'Achtergrondkleur',
+        label = _('Background color'),
         required = False,
-        help_text = 'De achtergrondkleur van de quote.'
+        help_text = _('The background color of the quote.')
     )
+
     quote_color = ColorPickerBlock(
-        label = 'Kleur tekst',
+        label = 'Color text',
         required = False,
-        help_text = 'De tekstkleur van de quote.'
+        help_text = 'The text color of the quote.'
     )
 
     logo = ImageChooserBlock(required = False)
 
     name = blocks.CharBlock(
-        label = 'Naam',
+        label = _('Name'),
         max_length = 50,
-        help_text = 'Naam van de persoon achter het citaat.',
+        help_text = _('Name of the person behind the quote.'),
     )
 
     company = blocks.CharBlock(
-        label = 'Bedrijf',
+        label = _('Company'),
         max_length = 50,
-        help_text = 'Naam van het bedrijf achter het citaat.',
+        help_text = _('Name of the company behind the quote.'),
     )
 
     city = blocks.CharBlock(
-        label = 'Plaats',
+        label = _('Place'),
         max_length = 50,
-        help_text = 'Plaats'
+        help_text = _('Place'),
     )
 
     link = blocks.PageChooserBlock(
-        label = 'Interne link',
+        label = _('Internal link'),
         can_choose_root = True,
         required = False,
     )
-
 
 
 class HeaderChoiceBlock(blocks.ChoiceBlock):
@@ -248,67 +251,72 @@ class HeaderChoiceBlock(blocks.ChoiceBlock):
 
 class HeaderBlock(blocks.StructBlock):
     header = HeaderChoiceBlock(
-        label = 'Kopgrootte',
-        help_text = 'Grootte van de tekst.'
+        label = _('Head size'),
+        help_text = _('Size of the text.')
     )
+
     text = blocks.CharBlock(
-        label = 'Tekst',
+        label = _('Text'),
         max_length = 50,
-        help_text = 'Tekst van de koptekst.',
+        help_text = _('Text of the header.'),
     )
 
 
 class AccordionBlock(blocks.StructBlock):
     title = blocks.CharBlock(
-        label = 'Titel',
+        label = _('Title'),
         max_length = 50,
-        help_text = 'Tekst in de titel.',
+        help_text = _('Text in the title.'),
     )
+
     content = blocks.RichTextBlock(
-        label = 'Inhoud',
-        help_text = 'Inhoud van de tab.',
+        label = _('Content'),
+        help_text = _('Contents of the tab.'),
     )
 
 
 class TabBlock(blocks.StructBlock):
     icon = IconChoiceBlock(
-        label = 'Icoon',
-        help_text = 'Icoon. (Font awesome)',
+        label = 'Icon',
+        help_text = 'Icon. (Font awesome)',
         required = False,
     )
     title = blocks.CharBlock(
-        label = 'Titel',
+        label = _('Title'),
         max_length = 50,
-        help_text = 'Tekst in de titel.',
+        help_text = _('Text in the title.'),
     )
     content = blocks.RichTextBlock(
-        label = 'Inhoud',
-        help_text = 'Inhoud van de tab.',
+        label = 'Content',
+        help_text = _('Contents of the tab.'),
     )
+
 
 class UnorderedListBlock(blocks.StructBlock):
     bullet_icon = ImageChooserBlock(
-        label = 'Afbeelding-icoon',
-        help_text = 'Het afbeelding icoontje per bullet.',
+        label = _('Image icon'),
+        help_text = _('The image icon per bullet.'),
         required=False,
     )
     content = blocks.ListBlock(
         blocks.RichTextBlock(),
-        label = 'Bullets',
-        help_text = 'Inhoud van de bullet.',
+        label = _('Bullets'),
+        help_text = _('Content of the bullet.'),
     )
+
 
 class TextFieldBlock(blocks.StructBlock):
     content = blocks.RichTextBlock(
-        label = 'Tekstveld',
-        help_text = 'Inhoud van het tekstveld.',
+        label = _('Text box'),
+        help_text = _('Content of the text field.'),
     )
 
-class InfoBoxBlock(blocks.StructBlock):
-    tekst = blocks.RichTextBlock()
 
-    class Meta:
-        template = 'streamfields/infoblock.html'
+# class InfoBoxBlock(blocks.StructBlock):
+#     tekst = blocks.RichTextBlock()
+
+#     class Meta:
+#         template = 'streamfields/infoblock.html'
 
 class BackgroundBlock(blocks.StructBlock):
     type_field = blocks.ChoiceBlock(
@@ -318,221 +326,235 @@ class BackgroundBlock(blocks.StructBlock):
         )
     )
     background_image = ImageChooserBlock(
-        label = 'Afbeelding',
-        help_text = 'Het achtergrondplaatje van het blok.',
+        label = _('Image'),
+        help_text = _('The background image of the block.'),
     )
     block_height = blocks.IntegerBlock(
-        label = 'Hoogte',
-        help_text = 'Hoogte van het blok in pixels.',
+        label = _('Height'),
+        help_text = _('Height of the block in pixels.'),
         min_value = 0,
         max_value = 999,
         default = 250,
     )
     columns = blocks.ChoiceBlock(
-        label = 'Kolommen',
-        choices = [('2', 'Twee'), ('1', 'Een')],
+        label = 'Columns',
+        choices = [('2', 'Two'), ('1', 'One')],
         default = '2',
     )
     text_left = blocks.RichTextBlock(
-        label = 'Tekst links',
-        help_text = 'Tekst aan de linkerkant op de achtergrond.',
+        label = _('Text left'),
+        help_text = 'Text on the left in the background.',
         required = False,
     )
     text_right = blocks.RichTextBlock(
-        label = 'Tekst rechts',
-        help_text = 'Tekst aan de rechterkant op de achtergrond.',
+        label = _('Text right'),
+        help_text = 'Text on the right in the background.',
         required = False,
     )
     text_color = ColorPickerBlock(
-        label = 'Kleur tekst',
+        label = _('Color text'),
         required = False,
     )
 
 
 class ColoredTextBlock(blocks.StructBlock):
     text = blocks.RichTextBlock(
-        label = 'Tekst',
+        label = _('Text'),
         required = False,
     )
     color = ColorPickerBlock(
-        label = 'Kleur kiezer',
+        label = _('Color picker'),
         required = False,
     )
     bg_color = ColorPickerBlock(
-        label = 'Achtergrondkleur kiezer',
+        label = _('Background color picker'),
         required = False,
     )
-
 
 
 class DividerBlock(blocks.StructBlock):
     border_color = ColorPickerBlock(
-        label = 'Divider',
-        help_text = 'Lijn kleur.',
+        label = _('Divider'),
+        help_text = 'Line color.',
     )
     border_width = blocks.IntegerBlock(
+        label=_("Thckness"),
         default=2,
         min_value=1,
         max_value=50,
-        help_text="De dikte van de horizontal lijn.",
-        label="Dikte"
+        help_text="The thickness of the horizontal line.",
     )
 
 
 class HTMLBlock(blocks.StructBlock):
     raw_html = blocks.RawHTMLBlock(
-        label = 'HTML blok',
-        help_text = 'HTML blok',
+        label = _('HTML block'),
+        help_text = 'HTML block',
     )
 
 
 class ButtonBlock(blocks.StructBlock):
     button_color = ColorPickerBlock(
-        label = 'Achtergrondkleur kiezer',
-        help_text = 'De kleur van de achtergrond.',
+        label = _('Background color picker'),
+        help_text = 'The color of the background.',
         required = False,
     )
     color = ColorPickerBlock(
-        label = 'Fontkleur kiezer',
-        help_text = 'De kleur van de tekst.',
+        label = _('Font color selector'),
+        help_text = 'The color of the text.',
         required = False,
     )
     icon = IconChoiceBlock(
-        label = 'Icoon',
-        help_text = 'Icoon op de knop. (Font awesome)',
+        label = _('Icon'),
+        help_text = 'Icon on the button.. (Font awesome)',
         required = False,
     )
     icon_size = blocks.IntegerBlock(
-        label = 'Icoon grootte',
-        help_text = 'Grootte van de icoon op de knop. (in pixels)',
+        label = _('Icon size'),
+        help_text = 'Size of the icon on the button. (in pixels)',
         default = 14,
     )
     text = blocks.CharBlock(
-        label = 'Tekst',
+        label = _('Text'),
         max_length = 50,
         help_text = 'Tekst op de knop.',
     )
     text_size = blocks.IntegerBlock(
-        label = 'Tekst grootte',
-        help_text = 'Grootte van de tekst op de knop. (in pixels)',
+        label = _('Text Size'),
+        help_text = 'Size of the text on the button. (in pixels)',
         default = 14,
     )
     width = blocks.ChoiceBlock(
-        label = 'Breedte',
+        label = _('Width'),
         choices = [
-            (' ', 'Automatisch'), ('btn-block', '100%'),
+            (' ', 'Automatically'), ('btn-block', '100%'),
         ]
     )
     link = blocks.PageChooserBlock(
-        label = 'Link',
+        label = _('Link'),
         can_choose_root = True,
         required= False,
-        help_text="Kies een van de twee: link / externe link."
+        help_text="Choose one of the two: link / external link."
     )
     ext_link = blocks.CharBlock(
         label='Externe link',
         max_length = 255,
         required = False,
-        help_text="Kies een van de twee: link / externe link."
+        help_text="Choose one of the two: link / external link."
     )
+
 
 class VideoBlock(blocks.StructBlock):
     video_id = blocks.CharBlock(
-        label = 'Video',
+        label = _('Video'),
         max_length = 11,
         help_text = 'YouTube video code/id.',
     )
 
+
 class IconBlock(blocks.StructBlock):
     align = AlignChoiceBlock(
-        label = 'Uitlijning',
-        help_text = 'Uitlijning van de tekst.'
+        label = _('Alignment'),
+        help_text = 'Alignment of the text.'
     )
     icon = IconChoiceBlock(
-        label = 'Icoon',
-        help_text = 'Icoon. (Font awesome)',
+        label = _('Icon'),
+        help_text = 'Icon. (Font awesome)',
     )
     text = blocks.RichTextBlock(
-        label = 'Tekst',
-        help_text = 'Tekst in het blok.',
+        label = _('Text'),
+        help_text = 'Text in the block.',
     )
+
 
 class CallToActionBlock(blocks.StructBlock):
     text = blocks.RichTextBlock(
-        label = 'Tekst',
-        help_text = 'Tekst in het blok.',
+        label = _('Text'),
+        help_text = 'Text in the block.',
     )
     button = ButtonBlock()
 
 
-
-
 class TableStructBlock(blocks.StructBlock):
     type_table = blocks.ChoiceBlock(
-        choices = [(' ', 'Gewone tabel'), ('price-table', 'Prijs tabel')],
-        label='Type tabel',
+        choices = [(' ', 'Ordinary table'), ('price-table', 'Price table')],
+        label=_('Type table'),
     )
     table_borders = blocks.ChoiceBlock(
         choices = [
-            ('no-borders', 'Geen lijnen'), ('column-borders', 'Kolom lijnen'),
-            ('row-borders', 'Regel lijnen'), ('all-borders', 'Kolom en regel lijnen'),
+            ('no-borders', 'No lines'), ('column-borders', 'Column lines'),
+            ('row-borders', 'Now lines'), ('all-borders', 'Column and line lines'),
         ],
-        label='Tabel lijnen'
+        label=_('Table lines')
     )
     table_header_rows = blocks.IntegerBlock(
-        label = 'Tabelheaderrijen',
+        label = _('Table header'),
         min_value = 0,
         max_value = 100,
         default = 2,
     )
     table_footer_rows = blocks.IntegerBlock(
-        label = 'Tabelfooterrijen',
+        label = _('Table footer'),
         min_value = 0,
         max_value = 100,
         default = 2,
     )
     table_header_background = ColorPickerBlock(
-        label = 'Tabelheader achtergrondkleur',
+        label = _('Table header background'),
         required = False,
     )
     table_header_color = ColorPickerBlock(
-        label = 'Tabelheader tekstkleur',
+        label = _('Table header color'),
         required = False,
     )
     table_header_text_size = blocks.IntegerBlock(
-        label = 'Tabelheader grootte tekst',
-        help_text = 'Tabelheader grootte van de tekst.',
+        label = _('Table header size text'),
+        help_text = 'Table header size of the text.',
         min_value = 1,
         max_value = 100,
         default = 20,
     )
     table_footer_background = ColorPickerBlock(
-        label = 'Tabelfooter achtergrondkleur',
+        label = _('Table footer background color'),
         required = False,
     )
     table_footer_color = ColorPickerBlock(
-        label = 'Tabelfooter tekstkleur',
+        label = _('Table footer color'),
         required = False,
     )
     table = TableBlock(
+        label=_('Tabel'),
         table_options=TABLE_OPTIONS,
-        label='Tabel',
-        help_text='HTML is mogelijk in de tabel'
+        help_text='HTML is possible in the table'
     )
 
 
 class ActionBlock(blocks.StructBlock):
-    action = blocks.CharBlock(verbose_name="Actie", help_text="Tekst wat linksboven in de afbeelding komt. Bijvoorbeeld: Blog")
+    action = blocks.CharBlock(
+        verbose_name="Action",
+        help_text="Text that appears at the top left of the image. For example: Blog"
+    )
     color = ColorPickerBlock(
-        label = 'Achtergrond kleur',
-        help_text='Achtergrond kleur voor actie',
+        label = _('Background color'),
+        help_text='Background color for action',
         required = False,
     )
     image = ImageChooserBlock()
-    datum = blocks.DateBlock(required=False, help_text="Optioneel. Bijvoorbeeld voor blogs of speciale events.")
-    title = blocks.CharBlock(verbose_name="Titel", help_text="Titel van je actieblok. Voorbeeld: Review: De nieuwe HP Latex 570")
-    link = blocks.CharBlock(verbose_name="Link url", help_text="Vul hier een url handmatig in. Bijvoorbeeld: /contact/ of www.google.nl")
-    link_text = blocks.CharBlock(verbose_name="Link tekst", help_text="Vul hier een url tekst handmatig in. Bijvoorbeeld: bekijk alle blogartikelen of bekijk alle reviews. ")
+    date = blocks.DateBlock(
+        required=False,
+        help_text="Optional. For example for blogs or special events."
+    )
+    title = blocks.CharBlock(
+        verbose_name=_("Title"),
+        help_text="Title of your action block. Example: Review: The new HP Latex 570"
+    )
+    link = blocks.CharBlock(
+        verbose_name="Link url",
+        help_text="Enter a url manually here. For example: / contact / or www.google.nl"
+    )
+    link_text = blocks.CharBlock(
+        verbose_name="Link text", help_text="Enter a url text manually here. For example: view all blog articles or view all reviews."
+    )
 
 
 class LogoBlock(blocks.StructBlock):
@@ -547,6 +569,7 @@ class DownloadLinkBlock(blocks.StructBlock):
     buttontext = blocks.CharBlock(blank=True,default='')
     link = DocumentChooserBlock()
     image = ImageChooserBlock()
+
 
 class RevSliderBlock(blocks.StructBlock):
     image = ImageChooserBlock()
@@ -567,6 +590,7 @@ class CoworkerBlock(blocks.StructBlock):
     positions = blocks.IntegerBlock(default=1)
     image = ImageChooserBlock()
 
+
 class ProjectBlock(blocks.StructBlock):
     title = blocks.CharBlock(blank=True,default='')
     image = ImageChooserBlock()
@@ -575,106 +599,125 @@ class ProjectBlock(blocks.StructBlock):
 
 class GoogleMapsBlock(blocks.StructBlock):
     address = blocks.TextBlock(
-        label = 'Adres',
-        help_text = 'Adres, plaats, land',
+        label = _('Address'),
+        help_text = 'Address, place, country',
         required = False,
     )
     height = blocks.IntegerBlock(
-        label = 'Hoogte',
-        help_text = 'Hoogte van het blok in pixels.',
+        label = _('Height'),
+        help_text = 'Height of the block in pixels.',
         min_value = 0,
         max_value = 999,
         default = 250,
     )
 
 
-
 grid_array = \
-    [('tabellen', TableStructBlock(
-        label='Tabellen',
+    [('tables', TableStructBlock(
+        label=_('Tables'),
         template = 'streamfields/table.html',
         icon='fa-table'))
-    ,('citaten', blocks.ListBlock(
+    ,('quotes', blocks.ListBlock(
         QuoteBlock(),
+        label=_('Quotes'),
         template = 'streamfields/quotes.html',
         icon="openquote",))
-    ,('koppen', blocks.ListBlock(
+    ,('heads', blocks.ListBlock(
         HeaderBlock(),
+        label=_('Heads'),
         template = 'streamfields/header.html',
         icon="title",))
-    ,('tekst_velden', blocks.ListBlock(
+    ,('text_fields', blocks.ListBlock(
         TextFieldBlock(),
+        label=_('Text fields'),
         template = 'streamfields/text_field.html',
         icon="fa-align-justify",))
-    ,('lijst', blocks.ListBlock(
+    ,('list', blocks.ListBlock(
         UnorderedListBlock(),
+        label=_('List'),
         template = 'streamfields/list.html',
         icon="list-ul"))
     ,('accordions', blocks.ListBlock(
         AccordionBlock(),
+        label=_('accordions'),
         template = 'streamfields/accordion.html',
         icon='list-ol',))
     ,('tabs', blocks.ListBlock(
         TabBlock(),
+        label=_('Tabs'),
         template = 'streamfields/tab.html',
         icon='list-ol',))
     ,('verticale_tabs', blocks.ListBlock(
         TabBlock(),
+        label=_('Verticale tabs'),
         template = 'streamfields/vertical_tab.html',
         icon='list-ol',))
-    ,('afbeelding_met_tekst', blocks.ListBlock(
+    ,('image_with_text', blocks.ListBlock(
         BackgroundBlock(),
+        label=_('Image with text'),
         template = 'streamfields/background_with_text.html',
         icon='doc-full',))
-    ,('gekleurde_blokken', blocks.ListBlock(
+    ,('colored_blocks', blocks.ListBlock(
         ColoredTextBlock(),
+        label=_('Colored blocks'),
         template = 'streamfields/colored_block.html',
         icon="doc-full-inverse",))
-    ,('masonry_gallerij', blocks.ListBlock(
+    ,('masonry_gallery', blocks.ListBlock(
         MasonryGalleryBlock(),
+        label=_('masonry gallery'),
         template = 'streamfields/masonry_gallery.html',
         icon='fa-th',))
-    ,('owl_gallerij', blocks.ListBlock(
+    ,('owl_gallery', blocks.ListBlock(
         OwlGalleryBlock(),
         template = 'streamfields/owl_gallery.html',
         icon='image',))
-    ,('afbeelding', ImageChooserBlock(
+    ,('image', ImageChooserBlock(
         template = 'streamfields/image.html',
+        label=_('Image'),
         icon='image'))
     ,('divider', blocks.ListBlock(
         DividerBlock(),
+        label=_('Divider'),
         template = 'streamfields/divider.html',
         icon="horizontalrule",))
     ,('html', blocks.ListBlock(
         HTMLBlock(),
+        label=_('Html'),
         template = 'streamfields/raw_html.html',
         icon="code",))
-    ,('knop', blocks.ListBlock(
+    ,('button', blocks.ListBlock(
         ButtonBlock(),
+        label=_('Button'),
         template = 'streamfields/button.html',
         icon="fa-hand-pointer-o",))
     ,('video', blocks.ListBlock(
         VideoBlock(),
+        label=_('Video'),
         template = 'streamfields/video.html',
         icon="media",))
-    ,('icoon', blocks.ListBlock(
+    ,('icon', blocks.ListBlock(
         IconBlock(),
+        label=_('Icon'),
         template = 'streamfields/icon_block.html',
         icon="fa-font-awesome",))
     ,('call_to_action', blocks.ListBlock(
         CallToActionBlock(),
+        label=_('CallToAction'),
         template = 'streamfields/call_to_action.html',
         icon="fa-reply",))
     ,('tab_slider', blocks.ListBlock(
         SliderBlock(),
+        label=_('Tab Slider'),
         template = 'streamfields/tab_slider.html',
         icon="image"))
-    ,('actie', blocks.ListBlock(
+    ,('action', blocks.ListBlock(
         ActionBlock(),
+        label=_('Action'),
         template = 'streamfields/action.html',
         icon="fa-exclamation"))
-    ,('logo_blokken', blocks.ListBlock(
+    ,('logo_blocks', blocks.ListBlock(
         LogoBlock(),
+        label=_('Logo Blocks'),
         template = 'streamfields/logo_block.html',
         icon="image"))
     ,('download_link', blocks.ListBlock(
@@ -685,7 +728,7 @@ grid_array = \
         RevSliderBlock(),
         template = 'streamfields/rev_slider.html',
         icon="image"))
-    ,('medewerker', blocks.ListBlock(
+    ,('collaborator', blocks.ListBlock(
         CoworkerBlock(),
         template = 'streamfields/coworker.html',
         icon="fa-user-plus"))
@@ -755,19 +798,17 @@ class GridBlock(blocks.StructBlock):
         classname="grid-title"
     )
     grid = GridChoiceBlock(
-        label = 'Breedte kolom',
-        help_text = 'De breedte kolommen (*/12).',
+        label = _('Width column'),
+        help_text = _('The width columns (* / 12).'),
     )
     grid_classes = blocks.CharBlock(
         max_length=255,
         required=False,
-        label = 'Classes',
-        help_text = 'De classes van het grid.',
+        label = _('Classes'),
+        help_text = _('The classes of the grid.'),
     )
     content = blocks.StreamBlock(
         validated_grid_array,
-        label="Inhoud"
+        label="Content"
     )
-
-
 
