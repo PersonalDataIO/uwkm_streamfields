@@ -128,10 +128,10 @@ class SliderBlock(blocks.StructBlock):
         required = False,
     )
 
-    # cta_color_picker = ColorPickerBlock(
-    #     label = _('CTA background color selector'),
-    #     required = False,
-    # )
+    cta_color_picker = ColorPickerBlock(
+        label = _('CTA background color selector'),
+        required = False,
+    )
 
     cta_link_type = blocks.ChoiceBlock(
         label = 'CTA link type',
@@ -199,17 +199,17 @@ class QuoteBlock(blocks.StructBlock):
         help_text = _('The text size of the quote.'),
     )
 
-    # quote_background_color = ColorPickerBlock(
-    #     label = _('Background color'),
-    #     required = False,
-    #     help_text = _('The background color of the quote.')
-    # )
+    quote_background_color = ColorPickerBlock(
+        label = _('Background color'),
+        required = False,
+        help_text = _('The background color of the quote.')
+    )
 
-    # quote_color = ColorPickerBlock(
-    #     label = 'Color text',
-    #     required = False,
-    #     help_text = 'The text color of the quote.'
-    # )
+    quote_color = ColorPickerBlock(
+        label = 'Color text',
+        required = False,
+        help_text = 'The text color of the quote.'
+    )
 
     logo = ImageChooserBlock(required = False)
 
@@ -351,10 +351,10 @@ class BackgroundBlock(blocks.StructBlock):
         help_text = 'Text on the right in the background.',
         required = False,
     )
-    # text_color = ColorPickerBlock(
-    #     label = _('Color text'),
-    #     required = False,
-    # )
+    text_color = ColorPickerBlock(
+        label = _('Color text'),
+        required = False,
+    )
 
 
 class ColoredTextBlock(blocks.StructBlock):
@@ -362,21 +362,21 @@ class ColoredTextBlock(blocks.StructBlock):
         label = _('Text'),
         required = False,
     )
-    # color = ColorPickerBlock(
-    #     label = _('Color picker'),
-    #     required = False,
-    # )
-    # bg_color = ColorPickerBlock(
-    #     label = _('Background color picker'),
-    #     required = False,
-    # )
+    color = ColorPickerBlock(
+        label = _('Color picker'),
+        required = False,
+    )
+    bg_color = ColorPickerBlock(
+        label = _('Background color picker'),
+        required = False,
+    )
 
 
 class DividerBlock(blocks.StructBlock):
-    # border_color = ColorPickerBlock(
-    #     label = _('Divider'),
-    #     help_text = 'Line color.',
-    # )
+    border_color = ColorPickerBlock(
+        label = _('Divider'),
+        help_text = 'Line color.',
+    )
     border_width = blocks.IntegerBlock(
         label=_("Thckness"),
         default=2,
@@ -394,16 +394,16 @@ class HTMLBlock(blocks.StructBlock):
 
 
 class ButtonBlock(blocks.StructBlock):
-    # button_color = ColorPickerBlock(
-    #     label = _('Background color picker'),
-    #     help_text = 'The color of the background.',
-    #     required = False,
-    # )
-    # color = ColorPickerBlock(
-    #     label = _('Font color selector'),
-    #     help_text = 'The color of the text.',
-    #     required = False,
-    # )
+    button_color = ColorPickerBlock(
+        label = _('Background color picker'),
+        help_text = 'The color of the background.',
+        required = False,
+    )
+    color = ColorPickerBlock(
+        label = _('Font color selector'),
+        help_text = 'The color of the text.',
+        required = False,
+    )
     icon = IconChoiceBlock(
         label = _('Icon'),
         help_text = 'Icon on the button.. (Font awesome)',
@@ -499,14 +499,14 @@ class TableStructBlock(blocks.StructBlock):
         max_value = 100,
         default = 2,
     )
-    # table_header_background = ColorPickerBlock(
-    #     label = _('Table header background'),
-    #     required = False,
-    # )
-    # table_header_color = ColorPickerBlock(
-    #     label = _('Table header color'),
-    #     required = False,
-    # )
+    table_header_background = ColorPickerBlock(
+        label = _('Table header background'),
+        required = False,
+    )
+    table_header_color = ColorPickerBlock(
+        label = _('Table header color'),
+        required = False,
+    )
     table_header_text_size = blocks.IntegerBlock(
         label = _('Table header size text'),
         help_text = 'Table header size of the text.',
@@ -514,14 +514,14 @@ class TableStructBlock(blocks.StructBlock):
         max_value = 100,
         default = 20,
     )
-    # table_footer_background = ColorPickerBlock(
-    #     label = _('Table footer background color'),
-    #     required = False,
-    # )
-    # table_footer_color = ColorPickerBlock(
-    #     label = _('Table footer color'),
-    #     required = False,
-    # )
+    table_footer_background = ColorPickerBlock(
+        label = _('Table footer background color'),
+        required = False,
+    )
+    table_footer_color = ColorPickerBlock(
+        label = _('Table footer color'),
+        required = False,
+    )
     table = TableBlock(
         label=_('Tabel'),
         table_options=TABLE_OPTIONS,
@@ -534,11 +534,11 @@ class ActionBlock(blocks.StructBlock):
         verbose_name="Action",
         help_text="Text that appears at the top left of the image. For example: Blog"
     )
-    # color = ColorPickerBlock(
-    #     label = _('Background color'),
-    #     help_text='Background color for action',
-    #     required = False,
-    # )
+    color = ColorPickerBlock(
+        label = _('Background color'),
+        help_text='Background color for action',
+        required = False,
+    )
     image = ImageChooserBlock()
     date = blocks.DateBlock(
         required=False,
