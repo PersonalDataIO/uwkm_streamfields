@@ -3,10 +3,10 @@
 {% load static %}
 
 <section>
-	<div class="container-fluid" style="padding: 0px;">
+	<div class="container-fluid" style="">
 		<div class="row">
 			{% for block in self %}
-				<div class="{{ block.grid }} {{ block.grid_classes }}" style="padding: 0px;">
+				<div class="{{ block.grid }} {{ block.grid_classes }}" style="">
 					{{ block.content }}
 				</div>
 			{% endfor %}
