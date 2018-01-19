@@ -611,6 +611,14 @@ class GoogleMapsBlock(blocks.StructBlock):
         default = 250,
     )
 
+class SubscribeBlock(blocks.StructBlock):
+    form_action_url = blocks.TextBlock(
+        label = _('Form action'),
+        help_text = 'Form action url',
+        required = True,
+    )
+
+
 
 grid_array = \
     [('tables', TableStructBlock(
@@ -739,6 +747,9 @@ grid_array = \
     ,('google_maps', GoogleMapsBlock(
         template = 'streamfields/google_maps.html',
         icon='fa-map-o'))
+    ,('subscribe_form', SubscribeBlock(
+        template = 'streamfields/subscribe.html',
+        icon='code'))
     ,]
 
 # Check if oscar_wagtail is in installed apps so they can access product streamfield
