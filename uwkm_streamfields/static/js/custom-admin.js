@@ -58,38 +58,39 @@ $(document).ready(function(){
 	});
 	$('li.formbuilder-type select[name$="field_type"]').trigger('change');
 
-	if (collapse) {
-		$.each($('.sequence:has(.grid-title):first > li'), function(){
-			var titles = [];
-			$.each($(this).find('.grid-title'), function(){
-				width = $(this).parent().next().find('select option[selected]').text();
-				if (width == '---------') {
-					width = '*';
-				}
-				titles.push($(this).find('input[type=text]:first').val() + '[' + width + ']' ); 
-			});
-			$(this).find('.sequence-type-list > .sequence-container-inner:first').prepend('<span style="font-size:20px;text-transform:uppercase;clear:both;">' + titles.join(', ') + '</span>');
-		});
+	// if (collapse) {
+	// 	$.each($('.sequence:has(.grid-title):first > li'), function(){
+	// 		var titles = [];
+	// 		$.each($(this).find('.grid-title'), function(){
+	// 			width = $(this).parent().next().find('select option[selected]').text();
+	// 			if (width == '---------') {
+	// 				width = '*';
+	// 			}
+	// 			titles.push($(this).find('input[type=text]:first').val() + '[' + width + ']' ); 
+	// 		});
+	// 		$(this).find('.sequence-type-list > .sequence-container-inner:first').prepend('<span style="font-size:20px;text-transform:uppercase;clear:both;">' + titles.join(', ') + '</span>');
+	// 	});
 
-		var collapsebutton = '<button type="button" title="Collapse" id="body-0-value-0-collapse" class="button icon text-replace hover-no icon-cross toggle-button">Collapse</button>';
+	// 	var collapsebutton = '<button type="button" title="Collapse" id="body-0-value-0-collapse" class="button icon text-replace hover-no icon-cross toggle-button">Collapse</button>';
 
-		$('.grid-title').closest('.sequence-member-inner').prev().append(collapsebutton);
-		$('.sequence:has(.grid-title) > li > .sequence-controls > .button-group').append(collapsebutton);
+	// 	$('.grid-title').closest('.sequence-member-inner').prev().append(collapsebutton);
+	// 	$('.sequence:has(.grid-title) > li > .sequence-controls > .button-group').append(collapsebutton);
 
-		$(document).on('click', '.toggle-button', function(){
-			$(this).closest('.sequence-member').toggleClass('hiddenchildren');
-			$(this).toggleClass('icon-cross').toggleClass('icon-plus');
-			$(this).closest('.sequence-controls').next().find('button:last').toggleClass('hidden')
-		});
+	// 	$(document).on('click', '.toggle-button', function(){
+	// 		$(this).closest('.sequence-member').toggleClass('hiddenchildren');
+	// 		$(this).toggleClass('icon-cross').toggleClass('icon-plus');
+	// 		$(this).closest('.sequence-controls').next().find('button:last').toggleClass('hidden')
+	// 	});
 
-		setTimeout(function(){
-			$('.toggle-button').trigger('click');
+	// 	setTimeout(function(){
+	// 		$('.toggle-button').trigger('click');
 
-			// if errors open again...
-			$('.sequence:has(.grid-title):first > li:has(.error-message) .toggle-button').trigger('click');
-		}, 10);
+	// 		// if errors open again...
+	// 		$('.sequence:has(.grid-title):first > li:has(.error-message) .toggle-button').trigger('click');
+	// 	}, 10);
 		
 		
-	}
+	// }
+  //
 });
 

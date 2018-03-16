@@ -1,9 +1,7 @@
- 
-+function ($) {
+(function ($) {
 
   'use strict';
-  
-  
+
   /* COLORPICKER CLASS DEFINITION
   * ========================= */
 
